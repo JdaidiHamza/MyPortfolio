@@ -1,1 +1,56 @@
-<p>home works!</p>
+    <!-- We use the animation trigger on a container to animate all its direct children -->
+<div   class="bg-black text-white min-h-screen flex flex-col font-sans">
+
+
+ <!-- HEADER / NAVBAR -->
+  <header class="w-full container mx-auto  flex justify-between items-center">
+    <div class="flex gap-x-40">
+    <h1 style="font-family: poppins;" class="text-[40px]  ">HJ</h1>
+    
+    <!-- Desktop Navigation -->
+  <nav class="hidden md:flex items-center gap-8 text-gray-300">
+  <!-- Use routerLink to the current route (e.g., '/') and specify the fragment -->
+  <a  href="#home" class="hover:text-white transition-colors">Home</a>
+  <a  href="#skills" class="hover:text-white transition-colors">Skills</a>
+  <a  href="#projects" class="hover:text-white transition-colors">Projects</a>
+  <a  href="#contact" class="hover:text-white transition-colors">Contact</a>
+</nav>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#contact"  class="!bg-white text-black rounded-full px-4 py-2" >Let's Talk</a>
+    
+    </div>
+  </header>
+  <!-- MAIN CONTENT -->
+  <section id="#home" class="flex-grow container mx-auto  flex flex-col md:flex-row items-center gap-12">
+    
+    <!-- Left Column: Text Content -->
+    <div  class="md:w-3/5 lg:w-1/2 text-center md:text-left">
+      <h1 class="text-2xl lg:text-5xl font-medium leading-tight ">
+        Hello, I'm <span  class=" bg-gradient-to-r from-red-600  font-medium to-purple-600 inline-block text-transparent bg-clip-text">Hamza.</span><br>
+        Full-Stack Developer<br>
+        in Morocco.
+      </h1>
+
+      <p style="font-family: poppins;" class="mt-6 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
+        I'm a full-stack web developer dedicated to creating reliable, high-performing, and modern web solutions that align with business goals and modern development standards.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+        <a href="#contact"  class="bg-white text-black rounded-full px-4 py-2" >Get In Touch</a>
+        <a href="#projects" class="border-white text-white border-2 rounded-full px-4 py-2" >View All Works</a>
+      </div>
+    </div>
+    
+    <!-- Right Column: Image -->
+    <div class="md:w-2/5 lg:w-1/2 pr-20 flex justify-center md:justify-end">
+      <div class="w-72 h-72 lg:w-[450px] lg:h-[550px] rounded-[10px] overflow-hidden bg-white">
+        <!-- Using the original image from your screenshot -->
+         <img src="/assests/profile.jpg"  class="w-full h-full object-cover">
+      </div>
+    </div>
+
+  </section>
+  
+
+</div>

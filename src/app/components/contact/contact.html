@@ -1,0 +1,82 @@
+<section class="bg-black text-white py-20 px-4 md:px-8 font-sans relative overflow-hidden">
+
+  <!-- Subtle Background Grid -->
+  <div class="absolute inset-0 z-0 opacity-20" style="
+    background-image:
+      linear-gradient(white 0.5px, transparent 0.5px),
+      linear-gradient(90deg, white 0.5px, transparent 0.5px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 100% 100% at 100% 50%, black 40%, transparent 70%);
+  "></div>
+  
+  <div  class="container mx-auto relative z-10">
+    <!-- Section Header -->
+    <div class="mb-12">
+      <h2 class="text-5xl font-bold">Let's Connect</h2>
+      <p class="text-gray-400 mt-2">Get in touch for opportunities or just to say hello</p>
+    </div>
+
+    <div class="grid md:grid-cols-1 gap-16">
+      
+      <!-- Left Column: Info & Form -->
+      <div>
+        <!-- Contact Info Cards -->
+        <div @staggerAnimation class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-12">
+          <a *ngFor="let detail of contactDetails" [href]="detail.href" target="_blank"
+             class="bg-gray-700/50 p-6 rounded-lg flex flex-col gap-2 transition-all duration-300 ease-in-out hover:bg-gray-800 hover:-translate-y-2">
+            <i [class]="detail.icon" class="text-primary-pink text-2xl"></i>
+            <span class="text-gray-400 text-sm">{{ detail.label }}</span>
+            <span class="font-semibold text-white">{{ detail.value }}</span>
+          </a>
+        </div>
+
+       
+      </div>
+
+      <!-- Right Column: Empty, shows the grid background -->
+      <div class="hidden md:block"></div>
+    </div>
+    <div class="grid md:grid-cols-2">
+       <!-- Contact Form -->
+        <div>
+        <h3 class="text-3xl font-bold mb-6">Send me a message</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" @staggerAnimation class="space-y-6">
+          
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+            <input  type="text" id="name" formControlName="name" class="bg-gray-700/50 w-full p-4 rounded-[2px]" placeholder="Your name">
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-red-400 text-xs mt-1">
+              Name is required.
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+            <input type="email" id="email" formControlName="email" class="bg-gray-700/50 w-full p-4 rounded-[2px]" placeholder="Your email">
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-red-400 text-xs mt-1">
+              <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="contactForm.get('email')?.errors?.['email']">Please enter a valid email.</span>
+            </div>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+            <textarea id="message" formControlName="message" rows="5" class="bg-gray-700/50 w-full p-4 rounded-[2px]" placeholder="Your message"></textarea>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-red-400 text-xs mt-1">
+              Message must be at least 10 characters long.
+            </div>
+          </div>
+
+          <button type="submit" 
+                  class="bg-gray-700/50 w-full p-4 rounded-[4px] text-white font-bold py-3  transition-all duration-300
+                         disabled:bg-gray-800 disabled:text-gray-500 disabled:cursor-not-allowed
+                         hover:enabled:bg-primary-pink hover:enabled:scale-105">
+            Send Message
+          </button>
+
+        </form>
+          </div>
+
+    </div>
+  </div>
+</section>

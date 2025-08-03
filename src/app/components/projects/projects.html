@@ -1,0 +1,81 @@
+<section  class="bg-black text-white py-20 px-4 md:px-8 font-sans">
+  <div class="container mx-auto">
+    
+    <!-- Section Header -->
+    <div class="mb-12 text-center md:text-left">
+      <h2 class="text-4xl font-bold">
+         Projects
+      </h2>
+      <p class="text-gray-400 mt-2">
+        Showcasing my journey in full-stack development
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center md:justify-start items-center gap-3 mb-12">
+      <button (click)="filterProjects('all')" 
+        [ngClass]="{
+          'bg-gradient-to-br from-red-800 to-purple-800  text-white': selectedCategory === 'all', 
+          'bg-gray-800 text-gray-400 hover:bg-gray-700': selectedCategory !== 'all'
+        }"
+        class="px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
+        All
+      </button>
+      <button (click)="filterProjects('web')" 
+        [ngClass]="{
+          'bg-gradient-to-br from-red-800 to-purple-800  text-white': selectedCategory === 'web', 
+          'bg-gray-800 text-gray-400 hover:bg-gray-700': selectedCategory !== 'web'
+        }"
+        class="px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
+        Web Apps
+      </button>
+      <button (click)="filterProjects('mobile')" 
+        [ngClass]="{
+          'bg-gradient-to-br from-red-800 to-purple-800  text-white': selectedCategory === 'mobile', 
+          'bg-gray-800 text-gray-400 hover:bg-gray-700': selectedCategory !== 'mobile'
+        }"
+        class="px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300">
+        Mobile Apps
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div  class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Project Card -->
+      <div *ngFor="let project of filteredProjects" 
+           class="bg-gray-900/50 rounded-lg overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:shadow-primary-pink/10">
+        
+        <!-- Image with Hover Effect -->
+        <div class="overflow-hidden h-72">
+          <img [src]="project.imageUrl" [alt]="project.title" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+        </div>
+        
+        <div class="p-6 flex flex-col flex-grow">
+          <!-- Title & Date -->
+          <h3 class="text-2xl font-bold text-gray-100">{{ project.title }}</h3>
+          <span class="text-xs font-medium bg-pink-700/20 text-pink-700 px-3 py-1 rounded-full self-start my-3">{{ project.date }}</span>
+          
+          <!-- Description Points -->
+          <ul class="space-y-2 text-gray-400 text-sm list-inside mb-6">
+            <li *ngFor="let point of project.descriptionPoints" class="flex items-start">
+              <span class="text-primary-pink mr-2 mt-1">•</span> <!-- Bullet point -->
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+
+          <!-- Technologies -->
+          <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+            <span *ngFor="let tech of project.technologies" class="flex items-center gap-2 text-xs bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">
+              <i [class]="tech.icon"></i>
+              {{ tech.name }}
+            </span>
+          </div>
+
+       
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
