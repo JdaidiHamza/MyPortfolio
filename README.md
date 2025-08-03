@@ -1,59 +1,98 @@
-# Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.6.
+## 🌟 My Personal Portfolio
 
-## Development server
+Welcome to my personal portfolio website! This project showcases my skills, personal projects, and offers a way to get in touch.
 
-To start a local development server, run:
+## 🌐 Live Demo
+
+Explore the live version here:
+👉 [http://jdaidihamza.mine.bz](http://jdaidihamza.mine.bz)
+
+## 💻 Technologies Used
+
+* 🅰️ **Angular v19** – Frontend framework
+* 🗄️ **PrimeNG** – UI component library
+* 💨 **Tailwind CSS** – Styling utility-first framework
+* 🐳 **Docker** – Containerization
+* 🌐 **Nginx** – Web server
+* ☁️ **Oracle Cloud Infrastructure (OCI)** – Hosting platform
+
+## ✨ Features
+
+* 🏠 **Home Section** – Quick introduction
+* 🛠️ **Skills Section** – Technical & soft skills overview
+* 🚀 **Projects Section** – Highlights of key projects
+* ✉️ **Contact Section** – Built-in contact form
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js (LTS recommended)
+* npm (comes with Node.js)
+* Angular CLI
+* Docker *(optional, for containerized setup)*
+
+Install Angular CLI globally:
+
+```bash
+npm install -g @angular/cli
+```
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/JdaidiHamza/MyPortfolio.git
+cd MyPortfolio
+
+```
+
+Install project dependencies:
+
+```bash
+npm install
+```
+
+### Running the Development Server
 
 ```bash
 ng serve
+# Navigate to http://localhost:4200/
+# The app will auto-reload on changes
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Building for Production
 
 ```bash
 ng build
+# The build artifacts will be output to the dist/ directory
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## ☁️ Deployment
 
-## Running unit tests
+This portfolio is deployed with Docker on Oracle Cloud Infrastructure using Nginx to serve static files.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Dockerized Production Setup
 
 ```bash
-ng test
+# Build the Angular app
+ng build --configuration production
+
+# Build Docker image
+docker build -t my-portfolio .
+
+# Run the container
+docker run -d -p 80:80 my-portfolio
 ```
 
-## Running end-to-end tests
+> Nginx is used as the web server inside the container to serve the Angular build artifacts.
+> The container is deployed to an OCI VM instance or container service.
 
-For end-to-end (e2e) testing, run:
+CI/CD and infrastructure automation can be added as needed — details can be provided upon request.
 
-```bash
-ng e2e
-```
+## 📬 Contact
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Feel free to reach out through the contact form on the [live demo](http://jdaidihamza.mine.bz) or visit my [GitHub profile](https://github.com/JdaidiHamza).
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
